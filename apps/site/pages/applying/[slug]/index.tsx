@@ -1,3 +1,4 @@
+import { MDXRemote } from 'next-mdx-remote';
 import { readdirSync } from 'fs';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { join } from 'path';
@@ -20,19 +21,16 @@ const StyledCompany = styled.div`
 
 const POSTS_PATH = join(process.cwd(), '_content/applying');
 
-export const Application: NextPage<ApplicationProps> = ({
-  frontMatter,
-  html,
-}) => {
+export function Application({ frontMatter, html }) {
   const { company } = frontMatter;
   return (
     <StyledCompany>
       <h1>Applying to {company}!</h1>
       <hr />
-      <main dangerouslySetInnerHTML={{ __html: html }} />
+      <MDXRemote {...html} />
     </StyledCompany>
   );
-};
+}
 
 export const getStaticProps: GetStaticProps<MarkdownRenderingResult> = async ({
   params,

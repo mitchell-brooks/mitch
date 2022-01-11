@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@mitchell-is/markdown": ["libs/markdown/src/index.ts"]
+      "@mitchell-is/markdown": ["libs/markdown/src/index.ts"],
+      "@mitchell-is/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
