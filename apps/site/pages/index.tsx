@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Layout } from '../lib/ui/layout/layout';
 
 const StyledPage = styled.div`
   .page {
@@ -12,17 +13,19 @@ export function Index() {
    * Note: The corresponding styles are in the ./index.styled-components file.
    */
   return (
-    <StyledPage>
-      <div className="wrapper">
-        <div className="container">
-          <div id="welcome">
-            <h1>
-              <span> mitchell.is </span>
-            </h1>
+    <Layout>
+      <StyledPage>
+        <div className="wrapper">
+          <div className="container">
+            <div id="welcome">
+              <h1>
+                <span> mitchell.is </span>
+              </h1>
+            </div>
           </div>
         </div>
-      </div>
-    </StyledPage>
+      </StyledPage>
+    </Layout>
   );
 }
 

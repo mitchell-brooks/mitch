@@ -1,162 +1,75 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
-/* eslint-disable-next-line */
-export interface GlobalStylesProps {}
+export const GlobalStyles = createGlobalStyle`
+/* global CSS variables */
+html {
+--color-white: hsla(0, 0%, 96%, 1.00);
+--color-white-darker: hsla(235, 26%, 91%, 1.00);
+--color-white-darkest: hsla(168, 5%, 81%, 1.00);
+--color-black: hsla(206, 10%, 31%, 1.00);
+--color-black-lighter: hsla(207, 34%, 24%, 1.00);
+--color-black-lightest: hsla(174, 13%, 30%, 1.00);
+--color-primary: hsla(212, 27%, 52%, 1.00);
+--color-secondary: hsla(187, 14%, 56%, 1.00);
+--color-accent: hsla(14, 48%, 54%, 1.00);
+}
 
-const GlobalStyles = createGlobalStyle`
-/*
-   Use a more-intuitive box-sizing model.
-*/
+/* fonts */
+@font-face {
+  font-family: 'Verlag Black';
+  font-display: swap;
+  unicode-range: U+000-5FF;
+  src: url('../assets/Verlag-Black.ttf') format('truetype');
+}
+
+/* boilerplate reset below */
+
+/* Use a more intuitive box-sizing model. */
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
-/*
-   Remove default margin
-*/
+/* Remove default margin  */
+
 * {
   margin: 0;
 }
-/*
-   Allow percentage-based heights in the application
-*/
+
+/* Allow percentage based heights in the application */
+
 html, body {
   height: 100%;
 }
-/*
-  Typographic tweaks!
-   Add accessible line-height
-   Improve text rendering
-*/
+/* Add accessible line-height & Improve text rendering */
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
-/*
-   Improve media defaults
-*/
+
+/*   Improve media defaults */
+
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
-/*
-   Remove built-in form typography styles
-*/
+
+/* Remove built in form typography styles */
+
 input, button, textarea, select {
   font: inherit;
 }
-/*
-   Avoid text overflows
-*/
+/* Avoid text overflows */
+
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
-/*
-   Create a root stacking context
-*/
+
+/*  Create a root stacking context */
+
 #root, #__next {
   isolation: isolate;
 }
-
-  html {
-    ${'' /* change this if implementing light/dark mode functionality */}
-    color: ${(props) => props.theme.color.primary};
-
-  }
-  
-  body {
-    font-family: ${(props) => props.theme.font.primary};
-  }
-
-  
-  h1 {
-    ${(props) => props.theme.font_size.xlarge};
-    font-family: ${(props) => props.theme.font.bold};
-    
-  }
-
-  h2 {
-    ${(props) => props.theme.font_size.larger};
-  }
-
-  h3 {
-    ${(props) => props.theme.font_size.larger};
-    font-family: ${(props) => props.theme.font.bold};
-  }
-
-  h4 {
-    ${(props) => props.theme.font_size.large};
-    font-family: ${(props) => props.theme.font.bold};
-  }
-
-  h5 {
-    ${(props) => props.theme.font_size.xsmall};
-    font-family: ${(props) => props.theme.font.normal};
-  }
-
-  p {
-    ${(props) => props.theme.font_size.small};
-    line-height: 22px;
-
-  }
-
-  input {
-    font-family: ${(props) => props.theme.font.normal};
-  }
-
-  @media (max-width: ${(props) => props.theme.screen.sm}) {
-    h1 {
-      ${(props) => props.theme.font_size.larger};
-    }
-
-    h2 {
-      ${(props) => props.theme.font_size.large};
-    }
-
-    h3 {
-      ${(props) => props.theme.font_size.regular};
-    }
-
-    p {
-      ${(props) => props.theme.font_size.small};
-    }
-  }
-
-  @media (max-width: ${(props) => props.theme.screen.xs}) {
-
-    h1 {
-
-    }
-
-    h2 {
-
-    }
-
-    h3 {
-      font-size: 32px;
-      line-height: 36px;
-    }
-
-    h4 {
-      font-size: 22px;
-      line-height: 24px;
-    }
-    p {
-
-    }
-
-  }
-
-  button {
-    border: none;
-    background: none;
-    outline: none;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  a {
-    cursor: pointer;
-  }
 `;
 
 export default GlobalStyles;

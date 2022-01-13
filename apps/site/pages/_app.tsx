@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import GlobalStyles from '../styles/global-styles';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -10,6 +11,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <main className="app">
         <Component {...pageProps} />
       </main>
+      <GlobalStyles />
     </>
   );
 }

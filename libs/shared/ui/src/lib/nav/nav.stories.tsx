@@ -15,4 +15,10 @@ const Template: Story<NavProps> = (args) => {
 };
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  home: {
+    title: 'mitchell',
+    hoverContent: '.is',
+    url: 'https://www.github.com/mitchell-brooks',
+  },
+};
