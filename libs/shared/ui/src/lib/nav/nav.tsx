@@ -3,12 +3,7 @@ import styled from 'styled-components';
 
 /* eslint-disable-next-line */
 export interface NavProps {
-  home: {
-    url: string;
-    title: string;
-    defaultContent: string;
-    hoverContent: string;
-  };
+  home: LinkProps & HomeLinkProps;
   navListItems: NavListItems;
 }
 interface LinkProps {
@@ -77,6 +72,13 @@ const NavItemsContainer = styled.ul`
   padding-right: 20px;
   list-style-type: none;
 `;
+
+const ProfileIconsContainer = styled.ul`
+display: flex;
+flex-direction: row;
+`
+const ProfileIcon = styled.li`
+`
 
 const NavItem = styled.li`
   padding: 0 10px;

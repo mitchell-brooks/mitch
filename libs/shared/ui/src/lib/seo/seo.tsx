@@ -3,8 +3,9 @@ import Head from 'next/head';
 
 /* eslint-disable-next-line */
 export interface SEOProps {
+	siteName: string;
   title: string;
-  desc: string;
+  description: string;
   canonical: string;
   image: string;
   twitter: string;
@@ -14,7 +15,7 @@ export interface SEOProps {
 
 export const SEO = ({
   title = 'Mitchell Brooks',
-  desc,
+  description,
   canonical,
   image,
   twitter = '@aMitchellBrooks',
@@ -23,20 +24,20 @@ export const SEO = ({
 }: SEOProps) => (
   <Head>
     <title>{title}</title>
-    <meta name="description" content={desc} key="description" />
+    <meta name="description" content={description} key="description" />
     <meta property="og:type" content="website" key="og_type" />
     <meta name="og:title" property="og:title" content={title} key="og_title" />
     <meta
       name="og:description"
       property="og:description"
-      content={desc}
+      content={description}
       key="og_description"
     />
-    <meta property="og:site_name" content="Mitchell Is" key="og_site_name" />
+    <meta property="og:site_name" content={siteName} key="og_site_name" />
     <meta property="og:url" content={`${canonical}`} key="og_url" />
     <meta name="twitter:card" content="summary" key="twitter_card" />
     <meta name="twitter:title" content={title} key="twitter_title" />
-    <meta name="twitter:description" content={desc} key="twitter_description" />
+    <meta name="twitter:description" content={description} key="twitter_description" />
     <meta name="twitter:site" content={twitter} key="twitter_site" />
     <meta name="twitter:creator" content={twitter} key="twitter_creator" />
     <link

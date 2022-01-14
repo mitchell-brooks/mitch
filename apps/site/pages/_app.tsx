@@ -1,13 +1,11 @@
 import { AppProps } from 'next/app';
-import Head from 'next/head';
 import GlobalStyles from '../styles/global-styles';
+import { SEO } from '@mitchell-is/shared/ui';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head>
-        <title>Welcome to site!</title>
-      </Head>
+      <SEO />
       <main className="app">
         <Component {...pageProps} />
       </main>
