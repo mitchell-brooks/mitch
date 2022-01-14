@@ -9,7 +9,8 @@
       "defaultConfiguration": "production",
       "options": {
         "root": "apps/site",
-        "outputPath": "dist/apps/site"
+        "outputPath": "dist/apps/site",
+        "webpackConfig": "apps/site/webpack.config.js"
       },
       "configurations": {
         "production": {}
@@ -19,7 +20,8 @@
       "executor": "@nrwl/next:server",
       "options": {
         "buildTarget": "site:build",
-        "dev": true
+        "dev": true,
+        "webpackConfig": "apps/site/webpack.config.js"
       },
       "configurations": {
         "production": {

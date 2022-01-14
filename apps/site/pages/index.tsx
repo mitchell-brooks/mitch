@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Layout } from '../lib/ui/layout/layout';
+import { Layout } from '@mitchell-is/shared/ui';
 
 const StyledPage = styled.div`
   .page {

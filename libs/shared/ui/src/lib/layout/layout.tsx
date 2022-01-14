@@ -10,8 +10,6 @@ export interface LayoutProps {
 export function Layout(props: LayoutProps) {
   return (
     <>
-      <SEO />
-      <Nav />
       <div>{props.children}</div>
     </>
   );

@@ -17,8 +17,13 @@ const Template: Story<NavProps> = (args) => {
 export const Primary = Template.bind({});
 Primary.args = {
   home: {
-    title: 'mitchell',
+    title: 'Mitchell',
+    defaultContent: ' Brooks',
     hoverContent: '.is',
-    url: 'https://www.github.com/mitchell-brooks',
+    url: '/',
   },
+  navListItems: [
+    { title: 'Projects', url: '/building', external: false, icon: null },
+    { title: 'About', url: '/me', external: false, icon: null },
+  ],
 };

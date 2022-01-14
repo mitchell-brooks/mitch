@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'Verlag';
+  font-family: 'Verlag Black';
   font-display: swap;
   unicode-range: U+000-5FF;
-  src: local('Verlag');
+  src: local('Verlag Black');
   src: url('../assets/Verlag-Black.ttf') format('truetype');
 }
