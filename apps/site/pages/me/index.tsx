@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-
+import { layoutProps } from '_content/_props';
+import { Layout } from '@mitchell-is/shared/ui';
 /* eslint-disable-next-line */
 export interface MeProps {}
 
@@ -9,9 +10,11 @@ const StyledMe = styled.div`
 
 export function Me(props: MeProps) {
   return (
-    <StyledMe>
-      <h1>Welcome to Me!</h1>
-    </StyledMe>
+    <Layout {...layoutProps}>
+      <StyledMe>
+        <h1>Welcome to Me!</h1>
+      </StyledMe>
+    </Layout>
   );
 }
 

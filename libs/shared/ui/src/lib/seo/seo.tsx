@@ -1,24 +1,24 @@
-import styled from 'styled-components';
 import Head from 'next/head';
 
 /* eslint-disable-next-line */
 export interface SEOProps {
-	siteName: string;
+  siteName: string;
   title: string;
   description: string;
-  canonical: string;
   image: string;
   twitter: string;
-  css: string | null;
-  js: string | null;
+  canonical?: string;
+  css?: string | null;
+  js?: string | null;
 }
 
 export const SEO = ({
-  title = 'Mitchell Brooks',
+  siteName,
+  title,
   description,
   canonical,
   image,
-  twitter = '@aMitchellBrooks',
+  twitter,
   css = null,
   js = null,
 }: SEOProps) => (
@@ -37,7 +37,11 @@ export const SEO = ({
     <meta property="og:url" content={`${canonical}`} key="og_url" />
     <meta name="twitter:card" content="summary" key="twitter_card" />
     <meta name="twitter:title" content={title} key="twitter_title" />
-    <meta name="twitter:description" content={description} key="twitter_description" />
+    <meta
+      name="twitter:description"
+      content={description}
+      key="twitter_description"
+    />
     <meta name="twitter:site" content={twitter} key="twitter_site" />
     <meta name="twitter:creator" content={twitter} key="twitter_creator" />
     <link
@@ -52,15 +56,7 @@ export const SEO = ({
       key="apple_icon"
     />
     {css && <link rel="stylesheet" href={`${css}`} key="css" />}
-    {image ? (
-      <meta property="og:image" content={`${image}`} key="og_image" />
-    ) : (
-      <meta
-        property="og:image"
-        content="https://mitchell.is/public/images/social.png"
-        key="og_image"
-      />
-    )}
+    {image && <meta property="og:image" content={`${image}`} key="og_image" />}
     {image && (
       <meta name="twitter:image" content={`${image}`} key="twitter_image" />
     )}

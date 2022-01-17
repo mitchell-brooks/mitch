@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react';
+import { navProps } from '_content/_props';
 import { Nav, NavProps } from './nav';
 
 export default {
@@ -15,15 +16,4 @@ const Template: Story<NavProps> = (args) => {
 };
 
 export const Primary = Template.bind({});
-Primary.args = {
-  home: {
-    title: 'Mitchell',
-    defaultContent: ' Brooks',
-    hoverContent: '.is',
-    url: '/',
-  },
-  navListItems: [
-    { title: 'Projects', url: '/building', external: false, icon: null },
-    { title: 'About', url: '/me', external: false, icon: null },
-  ],
-};
+Primary.args = { ...navProps };

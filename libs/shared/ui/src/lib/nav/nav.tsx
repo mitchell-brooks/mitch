@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ReactElement } from 'react';
 import styled from 'styled-components';
 
 /* eslint-disable-next-line */
@@ -7,8 +8,8 @@ export interface NavProps {
   navListItems: NavListItems;
 }
 interface LinkProps {
-  title: string;
   url: string;
+  title?: string;
   external?: boolean;
 }
 
@@ -29,20 +30,29 @@ const StyledNav = styled.div`
   align-items: center;
   width: 100%;
   height: 40px;
-  background-color: var(--color-white-darker);
-  border-bottom: 1px solid var(--color-white-darkest);
+  background-color: var(--nav-background-primary);
+  border-bottom: 1px solid var(--nav-background-shadow);
 `;
-const LinkOrA = ({ external = false, url, title, ...args }: LinkProps) =>
-  external ? (
+const SmartLink = ({
+  external = false,
+  url,
+  title,
+  ...args
+}: LinkProps): ReactElement => {
+  const regEx = /^http/;
+  if (regEx.test(url)) {
+    external = true;
+  }
+  return external ? (
     <a href={url} {...args}>
-      {title}
+      {title || url}
     </a>
   ) : (
     <Link href={url} {...args}>
-      {title}
+      {title || url}
     </Link>
   );
-
+};
 const HomeLink = styled.span<HomeLinkProps>`
   & > a,
   & > Link {
@@ -74,11 +84,10 @@ const NavItemsContainer = styled.ul`
 `;
 
 const ProfileIconsContainer = styled.ul`
-display: flex;
-flex-direction: row;
-`
-const ProfileIcon = styled.li`
-`
+  display: flex;
+  flex-direction: row;
+`;
+const ProfileIcon = styled.li``;
 
 const NavItem = styled.li`
   padding: 0 10px;
@@ -97,8 +106,8 @@ const NavItem = styled.li`
 export function Nav({ home, navListItems }: NavProps) {
   const navItems = navListItems.map((item) => {
     return (
-      <NavItem>
-        <LinkOrA {...item} />
+      <NavItem key={item.url}>
+        <SmartLink {...item} />
       </NavItem>
     );
   });
@@ -108,7 +117,7 @@ export function Nav({ home, navListItems }: NavProps) {
         defaultContent={home.defaultContent}
         hoverContent={home.hoverContent}
       >
-        <LinkOrA {...home} />
+        <SmartLink {...home} />
       </HomeLink>
       <NavItemsContainer>{navItems}</NavItemsContainer>
     </StyledNav>

@@ -2,6 +2,11 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
 html {
+--screen-sm: 576px;
+--screen-md: 768px;
+--screen-lg: 992px;
+--screen-xl: 1200px;
+
 --color-white: hsla(0, 0%, 96%, 1.00);
 --color-white-darker: hsla(235, 26%, 91%, 1.00);
 --color-white-darkest: hsla(168, 5%, 81%, 1.00);
@@ -11,6 +16,15 @@ html {
 --color-primary: hsla(212, 27%, 52%, 1.00);
 --color-secondary: hsla(187, 14%, 56%, 1.00);
 --color-accent: hsla(14, 48%, 54%, 1.00);
+
+--text-color-primary: var(--color-black-lighter);
+--text-color-nav: var(--color-primary);
+--text-font-family-nav: 'Verlag';
+--text-font-weight-nav: '900';
+
+--nav-background-primary: var(--color-white-darker);
+--nav-background-highlight: var(--color-white);
+--nav-background-shadow: var(--color-white-darkest);
 }
 
 @font-face {
@@ -29,7 +43,7 @@ html {
   margin: 0;
 }
 
-html, body {
+html, body, .app, #__next {
   height: 100%;
 }
 
@@ -51,7 +65,7 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
-#root, #__next {
+#root, #__next  {
   isolation: isolate;
 }
 `;

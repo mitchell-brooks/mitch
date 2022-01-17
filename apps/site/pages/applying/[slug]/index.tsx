@@ -9,6 +9,8 @@ import {
   MarkdownRenderingResult,
   renderMarkdown,
 } from '@mitchell-is/markdown';
+import { Layout } from '@mitchell-is/shared/ui';
+import { layoutProps } from '_content/_props';
 
 /* eslint-disable-next-line */
 export interface ApplicationProps extends ParsedUrlQuery {
@@ -24,11 +26,13 @@ const POSTS_PATH = join(process.cwd(), '_content/applying');
 export function Application({ frontMatter, html }) {
   const { company } = frontMatter;
   return (
-    <StyledCompany>
-      <h1>Applying to {company}!</h1>
-      <hr />
-      <MDXRemote {...html} />
-    </StyledCompany>
+    <Layout {...layoutProps}>
+      <StyledCompany>
+        <h1>Applying to {company}!</h1>
+        <hr />
+        <MDXRemote {...html} />
+      </StyledCompany>
+    </Layout>
   );
 }
 

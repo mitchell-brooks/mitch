@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Layout } from '@mitchell-is/shared/ui';
+import { layoutProps } from '_content/_props';
 
 const StyledPage = styled.div`
   .page {
@@ -13,7 +14,7 @@ export function Index() {
    * Note: The corresponding styles are in the ./index.styled-components file.
    */
   return (
-    <Layout>
+    <Layout {...layoutProps}>
       <StyledPage>
         <div className="wrapper">
           <div className="container">

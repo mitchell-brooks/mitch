@@ -1,17 +1,40 @@
 import styled from 'styled-components';
-import { Nav, SEO } from '@mitchell-is/shared/ui';
+import {
+  Footer,
+  FooterProps,
+  Nav,
+  NavProps,
+  SEO,
+} from '@mitchell-is/shared/ui';
 import React from 'react';
+import { SkipNavContent, SkipNavLink } from '@reach/skip-nav';
 
 /* eslint-disable-next-line */
 export interface LayoutProps {
+  navProps: NavProps;
+  footerProps: FooterProps;
   children: React.ReactElement;
 }
 
+const Container = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Main = styled.main`
+  height: 100%;
+`;
+
 export function Layout(props: LayoutProps) {
   return (
-    <>
-      <div>{props.children}</div>
-    </>
+    <Container>
+      <SkipNavLink />
+      <Nav {...props.navProps} />
+      <SkipNavContent />
+      <Main>{props.children}</Main>
+      <Footer {...props.footerProps} />
+    </Container>
   );
 }
 

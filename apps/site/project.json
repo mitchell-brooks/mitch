@@ -21,7 +21,7 @@
       "options": {
         "buildTarget": "site:build",
         "dev": true,
-        "webpackConfig": "apps/site/webpack.config.js"
+        "webpackConfig": "apps/webpack.config.js"
       },
       "configurations": {
         "production": {

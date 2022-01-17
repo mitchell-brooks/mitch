@@ -17,7 +17,8 @@
     "paths": {
       "@mitchell-is/markdown": ["libs/markdown/src/index.ts"],
       "@mitchell-is/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@mitchell-is/shared/utils": ["libs/shared/utils/src/index.ts"]
+      "@mitchell-is/shared/utils": ["libs/shared/utils/src/index.ts"],
+      "@mitchell-is/content": ["_content/"]
     }
   },
   "exclude": ["node_modules", "tmp"]
