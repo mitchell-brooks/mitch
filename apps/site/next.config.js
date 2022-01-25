@@ -25,6 +25,14 @@ const nextConfig = {
             use: 'ts-loader',
             include: path.resolve(__dirname, '../../_content'),
           },
+          {
+            test: /\.(jpe?g|png|gif|svg)$/i,
+            loader: 'file-loader',
+            include: path.resolve(__dirname, '../../_content'),
+            options: {
+              name: '_content/assets/images/[name].[ext]',
+            },
+          },
         ],
       },
     };

@@ -1,25 +1,27 @@
 import Link from 'next/link';
-import { ReactElement } from 'react';
+import {ReactElement} from 'react';
 import styled from 'styled-components';
-import SmartLink, {LinkProps} from '../smart-link/smart-link';
 
 /* eslint-disable-next-line */
+
 export interface NavProps {
-  home: LinkProps & HomeLinkProps;
-  navListItems: NavListItems;
+	home: LinkProps & HomeLinkProps;
+	navListItems: NavListItems;
 }
-
+interface LinkProps {
+	url: string;
+	title?: string;
+	external?: boolean;
+}
 interface NavListItem extends LinkProps {
-  icon?: string | null;
+	icon?: string | null;
 }
-
 interface NavListItems extends Array<NavListItem> {}
 
 export interface HomeLinkProps {
-  defaultContent: string;
-  hoverContent: string;
+	defaultContent: string;
+	hoverContent: string;
 }
-
 const StyledNav = styled.div`
   display: flex;
   flex-direction: row;
@@ -29,8 +31,24 @@ const StyledNav = styled.div`
   background-color: var(--nav-background-primary);
   border-bottom: 1px solid var(--nav-background-shadow);
 `;
-
-const HomeLink = styled.span<HomeLinkProps>`
+export const SmartLink = ({
+	external = false, url, title, ...args
+}: LinkProps): ReactElement => {
+	const regEx = /^http/;
+	if (regEx.test(url)) {
+		external = true;
+	}
+	return external ? (
+		<a href={url} {...args}>
+			{title || url}
+		</a>
+	) : (
+		<Link href={url} {...args}>
+			{title || url}
+		</Link>
+	);
+};
+const HomeLink = styled.span<HomeLinkProps> `
   & > a,
   & > Link {
     font-family: 'Verlag';
@@ -51,7 +69,6 @@ const HomeLink = styled.span<HomeLinkProps>`
     }
   }
 `;
-
 const NavItemsContainer = styled.ul`
   display: flex;
   flex-direction: row;
@@ -59,13 +76,11 @@ const NavItemsContainer = styled.ul`
   padding-right: 20px;
   list-style-type: none;
 `;
-
 const ProfileIconsContainer = styled.ul`
   display: flex;
   flex-direction: row;
 `;
 const ProfileIcon = styled.li``;
-
 const NavItem = styled.li`
   padding: 0 10px;
   font-family: 'Verlag';
@@ -80,25 +95,25 @@ const NavItem = styled.li`
   }
 `;
 
-export function Nav({ home, navListItems }: NavProps) {
-  const navItems = navListItems.map((item) => {
-    return (
-      <NavItem key={item.url}>
-        <SmartLink {...item} />
-      </NavItem>
-    );
-  });
-  return (
-    <StyledNav>
-      <HomeLink
-        defaultContent={home.defaultContent}
-        hoverContent={home.hoverContent}
-      >
-        <SmartLink {...home} />
-      </HomeLink>
-      <NavItemsContainer>{navItems}</NavItemsContainer>
-    </StyledNav>
-  );
+export function Nav({home, navListItems}: NavProps) {
+	const navItems = navListItems.map((item) => {
+		return (
+			<NavItem key={item.url}>
+				<SmartLink {...item} />
+			</NavItem>
+		);
+	});
+	return (
+		<StyledNav>
+			<HomeLink
+				defaultContent={home.defaultContent}
+				hoverContent={home.hoverContent}
+			>
+				<SmartLink {...home} />
+			</HomeLink>
+			<NavItemsContainer>{navItems}</NavItemsContainer>
+		</StyledNav>
+	);
 }
-
 export default Nav;
+
