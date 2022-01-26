@@ -1,11 +1,5 @@
 import styled from 'styled-components';
-import {
-  Footer,
-  FooterProps,
-  Nav,
-  NavProps,
-  SEO,
-} from '@mitchell-is/shared/ui';
+import { Footer, FooterProps, Nav, NavProps, SEO } from '@mitch/shared/ui';
 import React from 'react';
 import { SkipNavContent, SkipNavLink } from '@reach/skip-nav';
 

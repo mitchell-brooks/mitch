@@ -1,0 +1,28 @@
+{
+  "root": "apps/mitchell-is-e2e",
+  "sourceRoot": "apps/mitchell-is-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/mitchell-is-e2e/cypress.json",
+        "devServerTarget": "mitchell-is:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "mitchell-is:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/mitchell-is-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["mitchell-is"]
+}

@@ -2,10 +2,10 @@
   "version": 2,
   "projects": {
     "markdown": "libs/markdown",
+    "mitchell-is": "apps/mitchell-is",
+    "mitchell-is-e2e": "apps/mitchell-is-e2e",
     "shared-ui": "libs/shared/ui",
     "shared-utils": "libs/shared/utils",
-    "site": "apps/site",
-    "site-e2e": "apps/site-e2e",
     "storybook-e2e-ui-e2e": "apps/storybook-e2e/ui-e2e"
   }
 }

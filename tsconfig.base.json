@@ -15,10 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@mitchell-is/content": ["_content/"],
-      "@mitchell-is/markdown": ["libs/markdown/src/index.ts"],
-      "@mitchell-is/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@mitchell-is/shared/utils": ["libs/shared/utils/src/index.ts"]
+      "@mitch/markdown": ["libs/markdown/src/index.ts"],
+      "@mitch/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@mitch/shared/utils": ["libs/shared/utils/src/index.ts"],
+      "@mitchell-is/*": ["apps/mitchell-is/lib/index.ts"],
+      "@mitchell-is/content": ["apps/mitchell-is/_content/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

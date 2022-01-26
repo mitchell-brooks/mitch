@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import { seoProps } from '_content/_props';
+import { seoProps } from '@mitchell-is/content';
 import { SEO, SEOProps } from './seo';
 
 export default {

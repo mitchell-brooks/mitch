@@ -1,0 +1,56 @@
+{
+  "root": "apps/mitchell-is",
+  "sourceRoot": "apps/mitchell-is",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/mitchell-is",
+        "outputPath": "dist/apps/mitchell-is",
+        "webpackConfig": "apps/mitchell-is/webpack.config.js"
+      },
+      "configurations": {
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "options": {
+        "buildTarget": "mitchell-is:build",
+        "dev": true,
+        "webpackConfig": "apps/webpack.config.js"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "mitchell-is:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "mitchell-is:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/mitchell-is"],
+      "options": {
+        "jestConfig": "apps/mitchell-is/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/mitchell-is/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}

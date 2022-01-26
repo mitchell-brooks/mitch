@@ -21,7 +21,7 @@ module.exports = {
     // add your own webpack tweaks if needed
     // unable to resolve typescript files outside of the storybook directory unless you
     // specify the ts-loader should be used on outside files. this maps to the relative location of the project root
-    // which allows us to access the _content/_props/index.ts file and transpile it to .js
+    // which allows us to access the @mitchell-is/content/index.ts file and transpile it to .js
     config.module.rules.push({
       test: /\.tsx?$/,
       use: 'ts-loader',

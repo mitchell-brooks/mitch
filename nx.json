@@ -1,5 +1,5 @@
 {
-  "npmScope": "mitchell-is",
+  "npmScope": "mitch",
   "affected": {
     "defaultBase": "main"
   },
@@ -48,5 +48,5 @@
       }
     }
   },
-  "defaultProject": "site"
+  "defaultProject": "mitchell-is"
 }

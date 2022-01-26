@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ReactElement } from 'react';
 import styled from 'styled-components';
-import SmartLink, {LinkProps} from '../smart-link/smart-link';
+import SmartLink, { LinkProps } from '../smart-link/smart-link';
 
 /* eslint-disable-next-line */
 export interface NavProps {
@@ -81,7 +81,7 @@ const NavItem = styled.li`
 `;
 
 export function Nav({ home, navListItems }: NavProps) {
-  const navItems = navListItems.map((item) => {
+  const navItems = navListItems?.map((item) => {
     return (
       <NavItem key={item.url}>
         <SmartLink {...item} />
@@ -91,8 +91,8 @@ export function Nav({ home, navListItems }: NavProps) {
   return (
     <StyledNav>
       <HomeLink
-        defaultContent={home.defaultContent}
-        hoverContent={home.hoverContent}
+        defaultContent={home?.defaultContent}
+        hoverContent={home?.hoverContent}
       >
         <SmartLink {...home} />
       </HomeLink>

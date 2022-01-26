@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import { footerProps } from '_content/_props';
+import { footerProps } from '@mitchell-is/content';
 import { Footer, FooterProps } from './footer';
 
 export default {

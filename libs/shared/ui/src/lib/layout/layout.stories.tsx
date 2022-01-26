@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import { Layout, LayoutProps } from './layout';
-import { layoutProps } from '_content/_props';
+import { layoutProps } from '@mitchell-is/content';
 
 export default {
   component: Layout,

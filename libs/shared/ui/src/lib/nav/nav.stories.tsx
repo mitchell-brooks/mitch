@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react';
-import { navProps } from '_content/_props';
-import {Nav, NavProps} from "./NavProps";
+import { navProps } from '@mitchell-is/content';
+import { Nav, NavProps } from './nav';
 
 export default {
   component: Nav,
