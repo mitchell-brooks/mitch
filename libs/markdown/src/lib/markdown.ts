@@ -5,10 +5,6 @@ import slugify from 'slugify';
 import { markdownToHtml } from './markdown-to-html';
 import { MarkdownDocument } from './types';
 
-export function markdown(): string {
-  return 'markdown';
-}
-
 export const getParsedFileContentBySlug = (
   slug: string,
   postsPath: string
@@ -28,12 +24,12 @@ export const getParsedFileContentByFilename = (
   postsPath: string
 ): MarkdownDocument => {
   const postFilePath = join(postsPath, filename);
-	const imagesPath = '_content/assets/images';
+	const contentPath = 'apps/mitchell-is/_content';
+  const imagesPath = 'assets/images';
   const fileContents = fs.readFileSync(postFilePath);
   const { data, content } = matter(fileContents);
   let slug = data.slug ? data.slug : slugify(filename.replace(/\.[^/.]+$/, ''));
-  let image = join(imagesPath, data.image);
-
+  let image = join(contentPath, imagesPath, data.image);
   return {
     frontMatter: { ...data, image, slug },
     content,

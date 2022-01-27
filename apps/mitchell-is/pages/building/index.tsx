@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import { layoutProps } from '../../_content/_props';
+
 // import { layoutProps } from '@mitchell-is/content';
 import { Layout, SmartLink } from '@mitch/shared/ui';
 import { MarkdownDocument, getDirectoryContent } from '@mitch/markdown';
@@ -13,6 +14,11 @@ const directory = 'building';
 const pathToContent = 'apps/mitchell-is/_content';
 // const pathToContent = require.resolve('@mitchell-is/content');
 
+const image = async () => {
+  let image = await import('apps/mitchell-is/_content/assets/images/graph.png');
+  console.log(image);
+};
+image();
 const StyledBuilding = styled.div``;
 
 const ProjectsContainer = styled.section`
@@ -56,8 +62,14 @@ export function Building(props: BuildingProps) {
 }
 
 export async function getStaticProps() {
-  const contentArray = getDirectoryContent(pathToContent, directory);
-
+  const contentArray: MarkdownDocument[] = getDirectoryContent(
+    pathToContent,
+    directory
+  );
+  //  for (const c of contentArray) {
+  //    let image = await import(c.frontMatter.image);
+  //    c.frontMatter.image = image.src;
+  //  }
   return { props: { contentArray } };
 }
 export default Building;
