@@ -1,3 +1,4 @@
+export * from './lib/heading/heading';
 export * from './lib/markdown-container/markdown-container';
 export * from './lib/feature-button/feature-button';
 export * from './lib/footer/footer';
